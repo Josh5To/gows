@@ -1,10 +1,8 @@
-package header
+package bones
 
 import (
 	"bytes"
 	"html/template"
-
-	"github.com/rs/zerolog/log"
 )
 
 const headerTemplate = `{{define "header"}}
@@ -32,19 +30,19 @@ func createHeader() func(h Header) template.HTML {
 	return func(h Header) template.HTML {
 		temp, err := template.New("header").Parse(headerTemplate)
 		if err != nil {
-			log.Info().
-				Err(err).
-				Msgf("Error parsing header: %v\n", err)
+			//log.Info().
+			//	Err(err).
+			//	Msgf("Error parsing header: %v\n", err)
 			return template.HTML("")
 		}
-		log.Debug().Msgf("new header template created with name: %s", temp.Name())
+		//log.Debug().Msgf("new header template created with name: %s", temp.Name())
 
 		sb := new(bytes.Buffer)
 
 		if err := temp.Execute(sb, h); err != nil {
-			log.Info().
-				Err(err).
-				Msgf("Error executing header template: %v\n", err)
+			//log.Info().
+			//	Err(err).
+			//	Msgf("Error executing header template: %v\n", err)
 			return template.HTML("")
 		}
 

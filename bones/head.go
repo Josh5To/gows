@@ -11,6 +11,12 @@ type Head struct {
 
 	Title      string
 	Stylesheet []string
+	Links      []Link
+}
+
+type Link struct {
+	Rel  string
+	Href string
 }
 
 type Meta struct {

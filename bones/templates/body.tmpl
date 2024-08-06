@@ -1,0 +1,8 @@
+{{define "body"}}
+<main>
+    <h1>HELLO!</h1>
+    {{range .Divs}}
+        <div>{{body_unescapeDiv .}}</div>
+    {{end}}
+</main>
+{{end}}
